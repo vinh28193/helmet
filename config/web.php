@@ -3,7 +3,8 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'helmet',
+    'name' => 'Helmet Build',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
@@ -42,6 +43,26 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+            ],
+        ],
+        'i18n' => [
+            'translations' => [
+                '*'=> [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'fileMap' => [
+                        'db' => 'db.php',
+                        'layout'=> 'layout.php',
+                        'message' => 'message.php'
+                    ],
+                    //'on missingTranslation' => ['\app\components\I18nComponent', 'missingTranslation'],
+
+                ],
+                'yii' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'sourceLanguage' => 'en',
+                    'basePath' => '@yii/messages'
+                ],
             ],
         ],
     ],

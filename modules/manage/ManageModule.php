@@ -12,6 +12,11 @@ class ManageModule extends Module
     /**
      * @inheritdoc
      */
+    public $layout = '@app/modules/manage/layouts/main.php';
+
+    /**
+     * @inheritdoc
+     */
     public $controllerNamespace = 'app\modules\manage\controllers';
 
     /**
@@ -20,7 +25,11 @@ class ManageModule extends Module
     public function init()
     {
         parent::init();
-        $this->layout = '@app/modules/manage/layouts/main.php';
+        $this->on(self::EVENT_BEFORE_ACTION,[$this,'loginRequite']);
         // custom initialization code goes here
+    }
+
+    public function loginRequite(){
+        return true;
     }
 }
