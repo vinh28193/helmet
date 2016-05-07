@@ -3,35 +3,35 @@
 namespace app\modules\manage\controllers;
 
 use Yii;
+use app\models\ProductMaster;
 use app\models\ProductCategory;
-use app\modules\manage\models\ProductCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use app\modules\manage\models\ProductMasterSearch;
 /**
- * ProductCategoryController implements the CRUD actions for ProductCategory model.
+ * ProductMasterController implements the CRUD actions for ProductMaster model.
  */
-class ProductCategoryController extends Controller
+class ProductMasterController extends Controller
 {
 
+
     /**
-     * Lists all ProductCategory models.
+     * Lists all ProductMaster models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProductCategorySearch();
+        $searchModel = new ProductMasterSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'categories' => ProductCategory::find()->asArray()->all()
         ]);
     }
 
     /**
-     * Displays a single ProductCategory model.
+     * Displays a single ProductMaster model.
      * @param integer $id
      * @return mixed
      */
@@ -43,26 +43,26 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Creates a new ProductCategory model.
+     * Creates a new ProductMaster model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProductCategory();
+        $model = new ProductMaster();
         $categories = ProductCategory::find()->asArray()->all();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => $categories,
+                'categories' => $categories
             ]);
         }
     }
 
     /**
-     * Updates an existing ProductCategory model.
+     * Updates an existing ProductMaster model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -70,19 +70,19 @@ class ProductCategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+		$categories = ProductCategory::find()->asArray()->all();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ProductCategory::find()->asArray()->all(),
+                'categories' => $categories
             ]);
         }
     }
 
     /**
-     * Deletes an existing ProductCategory model.
+     * Deletes an existing ProductMaster model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -95,18 +95,22 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Finds the ProductCategory model based on its primary key value.
+     * Finds the ProductMaster model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ProductCategory the loaded model
+     * @return ProductMaster the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProductCategory::findOne($id)) !== null) {
+        if (($model = ProductMaster::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionPreview(){
+    	var_dump(Yii::$app->request->queryParams);exit();
     }
 }

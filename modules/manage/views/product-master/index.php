@@ -6,10 +6,10 @@ use yii\helpers\ArrayHelper;
 use kartik\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\manage\models\ProductCategorySearch */
+/* @var $searchModel app\modules\manage\models\ProductMasterSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('product_msg', 'Product Categories');
+$this->title = Yii::t('product_msg', 'Product Masters');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="box-body">
             <?php Pjax::begin(); ?>    
 			<?= GridView::widget([
-				'id' => 'product-category',
+				'id' => 'product-master',
 			    'dataProvider'=>$dataProvider,
 			    'filterModel'=>$searchModel,
 			    'containerOptions'=>['style'=>'overflow: auto'], // only set when $responsive = false
@@ -69,23 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					    'format'=>'raw',
 					    'noWrap'=> true
 					],
-					[
-					    'attribute'=>'parent_id',
-					    'value'=>function ($model, $key, $index, $widget) {
-					            return $model->parent_id == 0 ? 'ROOT' : $model->parent->title;
-					    },
-					    'filterType'=>GridView::FILTER_SELECT2,
-					    'filter'=> ArrayHelper::map($categories, 'id', 'title'),
-					    'filterWidgetOptions'=>[
-					        'pluginOptions'=>['allowClear'=>true],
-					     ],
-        				'filterInputOptions'=>['placeholder'=>'Any Category'],
-
-					    'hAlign'=>GridView::ALIGN_CENTER,
-                        'vAlign'=>GridView::ALIGN_MIDDLE,
-					    'format'=>'raw',
-					    'noWrap'=> true
-					],
+					
 					[
                             'class'=>'kartik\grid\BooleanColumn',
                             'attribute'=>'status',

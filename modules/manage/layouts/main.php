@@ -12,56 +12,49 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<?= Html::beginTag('html',['lang' => Yii::$app->language])?>
+<?= Html::beginTag('head')?>
+    <?= Html::tag('meta',false,['charset' => Yii::$app->charset])?>
+    <?= Html::tag('meta',false,['name'=>'viewport','content'=>'width=device-width, initial-scale=1'])?>
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <?= (isset($this->title) || $this->title = '') ?  Html::tag('title',Html::encode(implode(" | ", [Yii::$app->name,$this->title]))) : Html::tag('title',Yii::$app->name)?>
     <?php $this->head() ?>
-</head>
-<?php echo Html::beginTag('body', [
+<?= Html::endTag('head') ?>
+<?= Html::beginTag('body', [
     'class' => 'hold-transition skin-blue sidebar-mini'
 ])?>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<?= Html::beginTag('div',['class' => 'wrap'])?>
     <?= $this->render('partial/header');?>
     <!-- Left side column. contains the logo and sidebar -->
     <?= $this->render('partial/main-sidebar');?>
 
     <!-- Right side column. Contains the navbar and content of the page -->
-    <aside class="content-wrapper">
+    <?= Html::beginTag('aside',['class' => 'content-wrapper'])?>
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                <?php echo $this->title ?>
-                <?php if (isset($this->params['subtitle'])): ?>
-                    <small><?php echo $this->params['subtitle'] ?></small>
-                <?php endif; ?>
-            </h1>
-
-            <?php echo Breadcrumbs::widget([
+        <?= Html::beginTag('section',['class' => 'content-header'])?>
+            <?= Html::tag('h1',implode(" ", [$this->title, isset($this->params['subtitle']) ? Html::tag('small',$this->params['subtitle']) : " "]))?>
+            <?= Breadcrumbs::widget([
                 'tag'=>'ol',
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
-        </section>
+        <?= Html::endTag('section') ?>
 
             <!-- Main content -->
-        <section class="content">
-            <?php if (Yii::$app->session->hasFlash('alert')):?>
-                <?php echo \yii\bootstrap\Alert::widget([
+        <?= Html::beginTag('section',['class' => 'content'])?>
+            <?= Yii::$app->session->hasFlash('alert') ? \yii\bootstrap\Alert::widget([
                     'body'=>ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'body'),
                     'options'=>ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'options'),
-                ])?>
-            <?php endif; ?>
-            <?php echo $content ?>
-        </section><!-- /.content -->
-    </aside><!-- /.right-side -->
-</div>
+                ]) : "";?>
+            <?= $content ?>
+        <?= Html::endTag('section') ?><!-- /.content -->
+    <?= Html::endTag('aside') ?><!-- /.right-side -->
+<?= Html::endTag('div') ?>
 <?= $this->render('partial/footer');?>
 
 <?php $this->endBody() ?>
-<?php echo Html::endTag('body') ?>
-</html>
+<?= Html::endTag('body') ?>
+
 <?php $this->endPage() ?>
+<?= Html::endTag('html') ?>
