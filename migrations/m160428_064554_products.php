@@ -58,6 +58,8 @@ class m160428_064554_products extends Migration
             'id' => $this->primaryKey(),
             'product_id' => $this->integer()->notNull(),
             'code' => $this->string(512)->notNull(),
+            'base_url' => $this->string(),
+            'path' => $this->string()->notNull(),
             'status' => $this->smallInteger()->notNull()->defaultValue(1),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
