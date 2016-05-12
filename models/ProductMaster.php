@@ -16,8 +16,6 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $id
  * @property string $title
  * @property string $slug
- * @property string $body
- * @property string $view
  * @property string $short_description
  * @property string $description
  * @property string $thumbnail_base_url
@@ -25,10 +23,14 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $category_id
  * @property integer $author_id
  * @property integer $updater_id
+ * @property integer $price
+ * @property integer $quantity
+ * @property string $view
  * @property integer $status
  * @property integer $published_at
  * @property integer $updated_at
  *
+ * @property ProductColor[] $productColors
  * @property ProductComponent[] $productComponents
  * @property User $author
  * @property ProductCategory $category
@@ -129,6 +131,14 @@ class ProductMaster extends ActiveRecord
             'published_at' => Yii::t('db', 'Published At'),
             'updated_at' => Yii::t('db', 'Updated At'),
         ];
+    }
+    
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProductColors()
+    {
+        return $this->hasMany(ProductColor::className(), ['product_id' => 'id']);
     }
 
     /**

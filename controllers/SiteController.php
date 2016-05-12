@@ -8,7 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\forms\LoginForm;
 use app\models\forms\ContactForm;
-
+use app\models\ProductMaster;
+use app\models\ProductCategory;
 class SiteController extends Controller
 {
     public function behaviors()
@@ -49,7 +50,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $products = ProductMaster::find()->asArray()->all();
+        $categories = ProductCategory::find()->all();
+        return $this->render('index',['products' => $products,'categories' => $categories]);
     }
 
     public function actionLogin()
