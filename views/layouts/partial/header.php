@@ -55,7 +55,7 @@ use yii\helpers\ArrayHelper;
 						<span class="icon-bar"></span>
 					</button>
 					 <div class="navbar-brand logo-nav-left ">
-						<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="index.html">Classic<span>Style</span></a></h1>
+						<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="index.html">Helmet<!-- <span>Style</span> --></a></h1>
 					</div>
 
 				</div> 
@@ -64,7 +64,7 @@ use yii\helpers\ArrayHelper;
 						<li class="active"><a href="index.html" class="act">Home</a></li>	
 						<!-- Mega Menu -->
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
 							<ul class="dropdown-menu multi">
 								<div class="row">
 									<div class="col-sm-4">
