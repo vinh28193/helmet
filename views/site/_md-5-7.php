@@ -16,11 +16,9 @@
 	                    <div  class=" grid-product " >
 	                        <figure>        
 	                            <a href="single.html">	                            
-	                                <?php foreach ($product->productColors as $key => $obj) {
-	                                    echo '<div class="grid-img">';
-	                                    echo '<img  src="/stogares/'.$obj->path.'" class="img-responsive" alt="">';
-	                                    echo '</div>';
-	                                } ?>   
+									<div class="grid-img">
+	                                    <img  src="/stogares/<?=$product->productColors[0]->path?>" class="img-responsive" alt="">
+									</div>
 	                            </a>        
 	                        </figure>   
 	                    </div>
@@ -28,7 +26,7 @@
 	    
 	                        <h6><a href="single.html"><?=$product->title?></a></h6>
 	                        <p ><em class="item_price">$<?=$product->price?></em></p>
-	                        <a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a>
+	                        <!-- <a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a> -->
 	                    </div>
 	                </div>
 	            </div>
