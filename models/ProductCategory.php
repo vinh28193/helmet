@@ -15,6 +15,8 @@ use yii\helpers\ArrayHelper;
  * @property string $title
  * @property string $slug
  * @property integer $parent_id
+ * @property string $thumbnail_base_url
+ * @property string $thumbnail_path
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -76,7 +78,7 @@ class ProductCategory extends ActiveRecord
             [['title', 'slug'], 'required'],
             [['parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 512],
-            [['slug'], 'string', 'max' => 1024],
+            [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductCategory::className(), 'targetAttribute' => ['parent_id' => 'id']],
         ];
     }
@@ -87,13 +89,15 @@ class ProductCategory extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('db', 'ID'),
-            'title' => Yii::t('db', 'Title'),
-            'slug' => Yii::t('db', 'Slug'),
-            'parent_id' => Yii::t('db', 'Parent ID'),
-            'status' => Yii::t('db', 'Status'),
-            'created_at' => Yii::t('db', 'Created At'),
-            'updated_at' => Yii::t('db', 'Updated At'),
+            'id' => 'ID',
+            'title' => 'Title',
+            'slug' => 'Slug',
+            'parent_id' => 'Parent ID',
+            'thumbnail_base_url' => 'Thumbnail Base Url',
+            'thumbnail_path' => 'Thumbnail Path',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
 

@@ -17,7 +17,7 @@
 	                        <figure>        
 	                            <a href="single.html">	                            
 									<div class="grid-img">
-	                                    <img  src="/stogares/<?=$product->productColors[0]->path?>" class="img-responsive" alt="">
+	                                    <img  src="/stogares/<?=$product->thumbnail_path?>" class="img-responsive" alt="">
 									</div>
 	                            </a>        
 	                        </figure>   

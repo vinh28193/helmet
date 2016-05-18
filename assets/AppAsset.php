@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'js/jquery.flexisel.js',
         'js/owl.carousel.js',
         'js/wow.min.js',
+        'js/tinybox.js',
         'js/script.js'
     ];
     public $depends = [
