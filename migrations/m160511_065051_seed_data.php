@@ -8,11 +8,11 @@ class m160511_065051_seed_data extends Migration
     {
         $this->batchInsert(
             '{{%product_category}}',
-            ['id', 'title', 'slug', 'parent_id', 'status','created_at','updated_at'],
+            ['id', 'title', 'slug', 'parent_id', 'thumbnail_base_url','thumbnail_path','status','created_at','updated_at'],
             [
-                [1, 'ASAGI', 'asagi', null,1, time(),time()],
-                [2, 'IBUKI', 'ibuki', null,1, time(),time()],
-                [3, 'RT 33', 'rt-33', null,1, time(),time()],
+                [1, 'ASAGI', 'asagi',null,'stogares','category/default.png',1, time(),time()],
+                [2, 'IBUKI', 'ibuki',null,'stogares','category/default.png',1, time(),time()],
+                [3, 'RT 33', 'rt-33',null,'stogares','category/default.png',1, time(),time()],
             ]
         );
         $this->batchInsert(

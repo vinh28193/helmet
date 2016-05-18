@@ -16,6 +16,8 @@ class m160428_064554_products extends Migration
             'title' => $this->string(512)->notNull(),
             'slug' => $this->string(1024)->notNull(),
             'parent_id' => $this->integer(),
+            'thumbnail_base_url' => $this->string(1024),
+            'thumbnail_path' => $this->string(1024),
             'status' => $this->smallInteger()->notNull()->defaultValue(1),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
