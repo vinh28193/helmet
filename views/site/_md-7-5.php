@@ -1,14 +1,24 @@
+<?php 
+use yii\helpers\Html;
+use app\widgets\tinybox\TinyBox;
+ ?>
 <div class="content-top">                    
     <div class="col-md-7 col-md2 animated wow fadeInLeft" data-wow-delay=".1s">
         <?php foreach ($products as $key => $product):?>
                 <div class="col-sm-4 item-grid">
                     <div class="grid-pro">
-                        <div  class="grid-product " >    
-                                <a href="single.html" class="grid-img">                              
+                        <div  class="grid-product " >
+                            <?php 
+                                echo TinyBox::widget([
+                                    'id' => 'tinybox-pro-'.$product->id,
+                                    'tag' => 'span',
+                                    'tagLabel' => Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),
+                                    'tagOptions' => ['class'=>"grid-img"],
+                                    'url' => 'site/index?id='.$product->id,
+                                    'clientOptions' => ['width' => '1200']
+                                ])
+                             ?>
                                     
-                                        <img  src="/stogares/<?=$product->thumbnail_path?>" class="img-responsive" alt="">
-                                 
-                                </a>        
                         </div>
                         <div class="women">
                             <h6><a href="single.html"><?=$product->title?></a></h6>
