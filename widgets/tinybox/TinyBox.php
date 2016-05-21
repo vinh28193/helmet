@@ -15,7 +15,9 @@ class TinyBox extends Widget
     public $tagLabel = "Button Label";
     public $tagOptions = [];
     public $url;
+    
     public $clientOptions = [];
+    public $clientTrigger = "click";
 
     public function init(){
         $this->registerAssets();
@@ -39,7 +41,7 @@ class TinyBox extends Widget
         $clientOptions = Json::encode(ArrayHelper::merge($clientOptions, $this->clientOptions), JSON_UNESCAPED_SLASHES);
 
         $js = <<<JS
-$("#{$this->id}").on("click", function() {
+$("#{$this->id}").on("$this->clientTrigger", function() {
     TINY.box.show({$clientOptions});
 });
 JS;
