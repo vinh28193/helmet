@@ -55,6 +55,11 @@ class SiteController extends Controller
         return $this->render('index',['products' => $products,'categories' => $categories]);
     }
 
+    public function actionView()
+    {
+        return $this->renderPartial('view');
+    }
+
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {

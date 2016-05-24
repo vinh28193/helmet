@@ -14,7 +14,7 @@ use app\widgets\tinybox\TinyBox;
                                     'tag' => 'span',
                                     'tagLabel' => Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),
                                     'tagOptions' => ['class'=>"grid-img"],
-                                    'url' => 'site/index?id='.$product->id,
+                                    'url' => 'site/view',
                                     'clientOptions' => ['width' => '1200']
                                 ])
                              ?>
