@@ -47,7 +47,7 @@ Modal::begin([
     'id'=>'myModal-'.$product->id,
     'size' => Modal::SIZE_LARGE,
 ]);
-	echo $this->render('view',['a'=>$product->id]);
+	echo $this->render('modal',['a'=>$product->id]);
 Modal::end();
  ?>
  <?php endforeach; ?>
