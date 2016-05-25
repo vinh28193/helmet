@@ -7,16 +7,9 @@ use app\widgets\tinybox\TinyBox;
         <?php foreach ($products as $key => $product):?>
                 <div class="col-sm-4 item-grid">
                     <div class="grid-pro">
-                        <div  class="grid-product " >
+                        <div  class="grid-product">
                             <?php 
-                                echo TinyBox::widget([
-                                    'id' => 'tinybox-pro-'.$product->id,
-                                    'tag' => 'span',
-                                    'tagLabel' => Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),
-                                    'tagOptions' => ['class'=>"grid-img"],
-                                    'url' => 'site/view',
-                                    'clientOptions' => ['width' => '1200']
-                                ])
+                                echo Html::a(Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),['site/view','id' => $product->id],['class'=>"grid-img"])
                              ?>
                                     
                         </div>

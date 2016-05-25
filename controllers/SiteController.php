@@ -55,10 +55,11 @@ class SiteController extends Controller
         return $this->render('index',['products' => $products,'categories' => $categories]);
     }
 
-    public function actionView()
+    public function actionView($id)
     {
-        $this->layout = 'layout';
-        return $this->render('view');
+        $model = ProductMaster::findOne($id);
+        $categories = ProductCategory::find()->all();
+        return $this->render('view',['categories' => $categories,'model' => $model]);
     }
 
     public function actionLogin()

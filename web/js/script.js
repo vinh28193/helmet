@@ -2,7 +2,7 @@
 
 new WOW().init();
 
-$(window).load(function() {
+/*$(window).load(function() {
 	$("#flexiselDemo2").flexisel({
 		visibleItems: 1,
 		animationSpeed: 1000,
@@ -26,8 +26,8 @@ $(window).load(function() {
     	}
     });
     
-});
-$(document).ready(function() {
+});*/
+/*$(document).ready(function() {
 	$("#owl-demo").owlCarousel({
 		items : 2,
 		lazyLoad : false,
@@ -36,7 +36,7 @@ $(document).ready(function() {
 		navigationText :  true,
 		pagination : false,
 	});
-});
+});*/
 
 $(document).ready(function () {
     $('#horizontalTab').easyResponsiveTabs({
