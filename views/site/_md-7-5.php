@@ -1,6 +1,5 @@
 <?php 
 use yii\helpers\Html;
-use app\widgets\tinybox\TinyBox;
  ?>
 <div class="content-top">                    
     <div class="col-md-7 col-md2 animated wow fadeInLeft" data-wow-delay=".1s">
@@ -8,13 +7,14 @@ use app\widgets\tinybox\TinyBox;
                 <div class="col-sm-4 item-grid">
                     <div class="grid-pro">
                         <div  class="grid-product">
-                            <?php 
-                                echo Html::a(Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),['site/view','id' => $product->id],['class'=>"grid-img"])
-                             ?>
-                                    
+                            <figure>  
+                                <?php 
+                                    echo Html::a(Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),['site/view','id' => $product->id],['class'=>"grid-img"])
+                                 ?>
+                            </figure>    
                         </div>
                         <div class="women">
-                            <h6><a href="single.html"><?=$product->title?></a></h6>
+                            <h6><?php  echo Html::a($product->title,['site/view','id' => $product->id]) ?></h6>
                             <p ><em class="item_price">$<?=$product->price?></em></p>
                             <!-- <a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a> -->
                         </div>

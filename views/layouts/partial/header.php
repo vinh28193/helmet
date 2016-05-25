@@ -55,7 +55,7 @@ use yii\helpers\ArrayHelper;
 						<span class="icon-bar"></span>
 					</button>
 					 <div class="navbar-brand logo-nav-left ">
-						<h1 class="animated wow pulse" data-wow-delay=".5s"><a href="index.html">Helmet<!-- <span>Style</span> --></a></h1>
+						<h1 class="animated wow pulse" data-wow-delay=".5s"><?=Html::a('Helmet','/')?></h1>
 					</div>
 
 				</div> 
