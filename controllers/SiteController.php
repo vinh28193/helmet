@@ -57,7 +57,8 @@ class SiteController extends Controller
 
     public function actionView()
     {
-        return $this->renderPartial('view');
+        $this->layout = 'layout';
+        return $this->render('view');
     }
 
     public function actionLogin()

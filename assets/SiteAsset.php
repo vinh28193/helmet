@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class SiteAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
@@ -21,10 +21,14 @@ class AppAsset extends AssetBundle
         'css/style.css',
         'css/owl.carousel.css',
         'css/animate.min.css',
+        'css/flexslider.css',
     ];
     public $js = [
         'js/simpleCart.min.js',
         'js/wow.min.js',
+        'js/easyResponsiveTabs.js',
+        'js/imagezoom.js',
+        'js/jquery.flexslider.js',
         'js/script.js',
     ];
     public $depends = [
