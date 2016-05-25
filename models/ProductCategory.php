@@ -31,6 +31,12 @@ class ProductCategory extends ActiveRecord
     const STATUS_INACTIVE = 0;
 
     /**
+    * @var mixed thumbnail the attribute for rendering the file input
+    * widget for upload on the form
+    */
+    public $thumbnail;
+
+    /**
      * @inheritdoc
      */
     public static function tableName()
@@ -171,13 +177,13 @@ class ProductCategory extends ActiveRecord
      */
     static public function collect($categories = [], $activeId = null, $parent = null)
     {
-        $categories = !empty($categories) ? $categories  : self::find()->isParent()->all();
+        $categories = !empty($categories) ? $categories  : self::find()->all();
 
         $menuItems = [];
         foreach ($categories as $key => $category) {
             if ($category->parent_id === $parent) {
                 $items[$key] = [
-                    'category' => count($category->categories),
+                    'category' => count($category),
                     'label' => $category->title,
                     'active' => $activeId === $category->id,
                     'url' => ['/site/category', 'slug' => $category->slug],
