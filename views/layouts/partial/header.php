@@ -67,47 +67,20 @@ use yii\helpers\ArrayHelper;
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
 							<ul class="dropdown-menu multi">
 								<div class="row">
-									<div class="col-sm-4">
+					
 										<ul class="multi-column-dropdown">
-											<h6>Submenu1</h6>
-											
 											<li><a href="products.html">Accessories</a></li>
 											<li><a href="products.html">Bags</a></li>
 											<li><a href="products.html">Caps & Hats</a></li>
 											<li><a href="products.html">Hoodies & Sweatshirts</a></li>
 									
 										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<h6>Submenu2</h6>
-											<li><a href="products.html">Jackets & Coats</a></li>
-											<li><a href="products.html">Jeans</a></li>
-											<li><a href="products.html">Jewellery</a></li>
-											<li><a href="products.html">Jumpers & Cardigans</a></li>
-											<li><a href="products.html">Leather Jackets</a></li>
-											<li><a href="products.html">Long Sleeve T-Shirts</a></li>
+									
 
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<ul class="multi-column-dropdown">
-											<h6>Submenu3</h6>
-											<li><a href="products.html">Shirts</a></li>
-											<li><a href="products.html">Shoes, Boots & Trainers</a></li>
-											<li><a href="products.html">Sunglasses</a></li>
-											<li><a href="products.html">Sweatpants</a></li>
-											<li><a href="products.html">Swimwear</a></li>
-											<li><a href="products.html">Trousers & Chinos</a></li>
-
-										</ul>
-									</div>
 									<div class="clearfix"></div>
 								</div>
 							</ul>
 						</li>
-						
-						<li><a href="codes.html"> Codes</a></li>
 						<li><a href="contact.html">Contact Us</a></li>
 					</ul>
 				</div>
