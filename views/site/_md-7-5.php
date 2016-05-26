@@ -1,23 +1,14 @@
 <?php 
 use yii\helpers\Html;
-use app\widgets\tinybox\TinyBox;
+use yii\bootstrap\Modal;
  ?>
 <div class="content-top">                    
     <div class="col-md-7 col-md2 animated wow fadeInLeft" data-wow-delay=".1s">
         <?php foreach ($products as $key => $product):?>
                 <div class="col-sm-4 item-grid">
-                    <div class="grid-pro">
+                    <div class="grid-pro data-toggle="modal" data-target="#myModal-<?=$product->id?>"">
                         <div  class="grid-product " >
-                            <?php 
-                                echo TinyBox::widget([
-                                    'id' => 'tinybox-pro-'.$product->id,
-                                    'tag' => 'span',
-                                    'tagLabel' => Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),
-                                    'tagOptions' => ['class'=>"grid-img"],
-                                    'url' => 'site/view',
-                                    'clientOptions' => ['width' => '1200']
-                                ])
-                             ?>
+                            
                                     
                         </div>
                         <div class="women">
@@ -42,3 +33,14 @@ use app\widgets\tinybox\TinyBox;
     <div class="clearfix"></div>
 </div>
 <div class="clearfix"></div>
+<?php foreach ($products as $key => $product):?>
+<?php 
+Modal::begin([
+    'header' => '<h2>Hello world</h2>',
+    'id'=>'myModal-'.$product->id,
+    'size' => Modal::SIZE_LARGE,
+]);
+    echo $this->render('view',['a'=>$product->id]);
+Modal::end();
+ ?>
+ <?php endforeach; ?>
