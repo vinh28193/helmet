@@ -181,8 +181,7 @@ ul.multi-column-dropdown h6 {
     color: #FF7000 !important;
 }
 .dropdown-menu.multi {
-    min-width: 700px;
-    padding: 30px 30px;
+    padding: 5px 30px 5px 30px;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background: none;
@@ -201,8 +200,8 @@ ul.multi-column-dropdown h6 {
     margin-bottom: 0px;
 }
 .dropdown-menu {
-    top: 131%;
-    left: -159%;
+    top:10px;
+    left: 10px;
 }
 .multi1{
 	left: -330%;
@@ -1632,7 +1631,9 @@ span.span-1 {
     font-size: 1.05em;
 }
 .dropdown-menu {
-    left: -330%;
+    left: -29px;
+    top: 50px;
+    width: 100%;
 }
 .multi1 {
     left: -567%;
