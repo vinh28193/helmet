@@ -1,5 +1,5 @@
 <?php 
-use yii\bootstrap\Modal;
+use yii\helpers\Html;
  ?>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<div class="col-md-5 col-md1 animated wow fadeInLeft" data-wow-delay=".1s">
@@ -15,19 +15,17 @@ use yii\bootstrap\Modal;
 	<div class="col-md-7 col-md2 animated wow fadeInRight" data-wow-delay=".1s">
 	    <?php foreach ($products as $key => $product):?>
 	            <div class="col-sm-4 item-grid simpleCart_shelfItem">
-	                <div class="grid-pro" data-toggle="modal" data-target="#myModal-<?=$product->id?>">
+	                <div class="grid-pro">
 	                    <div  class="grid-product " >
-	                        <figure>        
-	                            <!-- <a href="single.html">	                             -->
-									<div class="grid-img">
-	                                    <img  src="/stogares/<?=$product->thumbnail_path?>" class="img-responsive" alt="">
-									</div>
-	                            <!-- </a>         -->
-	                        </figure>   
+	                        <figure>  
+                                <?php 
+                                    echo Html::a(Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),['site/view','id' => $product->id],['class'=>"grid-img"])
+                                 ?>
+                            </figure>   
 	                    </div>
 	                    <div class="women">
 	    
-	                        <h6><a href="single.html"><?=$product->title?></a></h6>
+	                        <h6><?php  echo Html::a($product->title,['site/view','id' => $product->id]) ?></h6>
 	                        <p ><em class="item_price">$<?=$product->price?></em></p>
 	                        <!-- <a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a> -->
 	                    </div>
@@ -40,14 +38,3 @@ use yii\bootstrap\Modal;
 	    <div class="clearfix"></div>
 </div>
 <div class="clearfix"></div>
-<?php foreach ($products as $key => $product):?>
-<?php 
-Modal::begin([
-    'header' => '<h2>Hello world</h2>',
-    'id'=>'myModal-'.$product->id,
-    'size' => Modal::SIZE_LARGE,
-]);
-	echo $this->render('view',['a'=>$product->id]);
-Modal::end();
- ?>
- <?php endforeach; ?>

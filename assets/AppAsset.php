@@ -20,19 +20,20 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/style.css',
         'css/owl.carousel.css',
-        'css/animate.min.css',
         'css/flexslider.css',
+        'css/animate.min.css',
     ];
     public $js = [
-        'js/jquery.flexisel.js',
-        'js/owl.carousel.js',
+        'js/simpleCart.min.js',
         'js/wow.min.js',
-        'js/script.js',
         'js/easyResponsiveTabs.js',
         'js/jquery.flexslider.js',
+        'js/imagezoom.js',
+        'js/script.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
+        'yii\web\JqueryAsset'
     ];
 }

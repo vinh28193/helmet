@@ -52,12 +52,21 @@ class SiteController extends Controller
     {
         $products = ProductMaster::find()->asArray()->all();
         $categories = ProductCategory::find()->all();
-        return $this->render('index',['products' => $products,'categories' => $categories]);
+        return $this->render('index',[
+            'products' => $products,
+            'categories' => $categories
+        ]);
     }
 
-    public function actionView()
+    public function actionView($id)
     {
-        return $this->renderPartial('view');
+        $model = ProductMaster::findOne($id);
+        //$categories = ProductCategory::collect();
+        $categories = ProductCategory::find()->all();
+        return $this->render('view',[
+            'categories' => $categories,
+            'model' => $model
+        ]);
     }
 
     public function actionLogin()

@@ -6,13 +6,16 @@ use yii\bootstrap\Modal;
     <div class="col-md-7 col-md2 animated wow fadeInLeft" data-wow-delay=".1s">
         <?php foreach ($products as $key => $product):?>
                 <div class="col-sm-4 item-grid">
-                    <div class="grid-pro data-toggle="modal" data-target="#myModal-<?=$product->id?>"">
-                        <div  class="grid-product " >
-                            
-                                    
+                    <div class="grid-pro">
+                        <div  class="grid-product">
+                            <figure>  
+                                <?php 
+                                    echo Html::a(Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),['site/view','id' => $product->id],['class'=>"grid-img"])
+                                 ?>
+                            </figure>
                         </div>
                         <div class="women">
-                            <h6><a href="single.html"><?=$product->title?></a></h6>
+                            <h6><?php  echo Html::a($product->title,['site/view','id' => $product->id]) ?></h6>
                             <p ><em class="item_price">$<?=$product->price?></em></p>
                             <!-- <a href="#" data-text="Add To Cart" class="but-hover1 item_add">Add To Cart</a> -->
                         </div>
