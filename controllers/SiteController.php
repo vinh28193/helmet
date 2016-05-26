@@ -50,6 +50,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $this->view->title = "Helmet";
         $products = ProductMaster::find()->asArray()->all();
         $categories = ProductCategory::find()->all();
         return $this->render('index',[
@@ -61,7 +62,7 @@ class SiteController extends Controller
     public function actionView($id)
     {
         $model = ProductMaster::findOne($id);
-        //$categories = ProductCategory::collect();
+        // $categories = ProductCategory::collect();
         $categories = ProductCategory::find()->all();
         return $this->render('view',[
             'categories' => $categories,
