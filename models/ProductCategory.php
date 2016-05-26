@@ -196,5 +196,17 @@ class ProductCategory extends ActiveRecord
         }
         return $menuItems;
     }
-
+    /*public function recursive($sourceArr,$parents = 0,$level =0,&$resultArr){
+        if(count($sourceArr)>0){
+            foreach ($sourceArr as $key => $value){
+                if($value['parent_id'] == $parents){
+                    $value['level'] = $level;
+                    $resultArr[] = $value;
+                    $newParents = $value['id'];
+                    unset($sourceArr[$key]);
+                    $this->recursive($sourceArr,$newParents,$level + 1,$resultArr);
+                }
+            }
+        }
+    }*/
 }
