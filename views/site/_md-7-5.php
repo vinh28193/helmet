@@ -1,5 +1,6 @@
 <?php 
 use yii\helpers\Html;
+use yii\bootstrap\Modal;
  ?>
 <div class="content-top">                    
     <div class="col-md-7 col-md2 animated wow fadeInLeft" data-wow-delay=".1s">
@@ -11,7 +12,7 @@ use yii\helpers\Html;
                                 <?php 
                                     echo Html::a(Html::img('/stogares/'.$product->thumbnail_path,['class' => 'img-responsive']),['site/view','id' => $product->id],['class'=>"grid-img"])
                                  ?>
-                            </figure>    
+                            </figure>
                         </div>
                         <div class="women">
                             <h6><?php  echo Html::a($product->title,['site/view','id' => $product->id]) ?></h6>
@@ -35,3 +36,14 @@ use yii\helpers\Html;
     <div class="clearfix"></div>
 </div>
 <div class="clearfix"></div>
+<?php foreach ($products as $key => $product):?>
+<?php 
+Modal::begin([
+    'header' => '<h2>Hello world</h2>',
+    'id'=>'myModal-'.$product->id,
+    'size' => Modal::SIZE_LARGE,
+]);
+    echo $this->render('view',['a'=>$product->id]);
+Modal::end();
+ ?>
+ <?php endforeach; ?>
