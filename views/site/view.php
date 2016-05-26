@@ -1,13 +1,14 @@
 <?php 
 use yii\helpers\Html;
 
+$this->title = $model->title;
  ?>
       <div class="product">
          <div class="container">
 
             <div class="col-md-3 product-bottom ">
                <!--categories-->
-               <div class="categories animated wow fadeInUp animated" data-wow-delay=".5s" >
+               <!-- <div class="categories animated wow fadeInUp animated" data-wow-delay=".5s" >
                   <?php echo Html::tag('h3','Categories')?>
                   <?php /*echo  echo Nav::widget([
                         'items' => $categories
@@ -25,7 +26,7 @@ use yii\helpers\Html;
                      }
                   echo Html::endTag('ul');
                   ?>
-               </div>
+               </div> -->
                <!--//menu-->
                
             </div>
@@ -76,7 +77,14 @@ use yii\helpers\Html;
                               <div class="facts1">
                                  <div class="color">
                                     <p>Color</p>
-                                    <span >Blue, Black, Red</span>
+                                    <span ><?php foreach ($model->productColors as $key =>$product) {
+                                    	if ($key==0) {
+                                    		echo $product->code;
+                                    	}else{
+                                    		echo " , ".$product->code;
+                                    	}
+                                    	
+                                    } ?></span>
                                     <div class="clearfix"></div>
                                  </div>
                                  
@@ -90,6 +98,9 @@ use yii\helpers\Html;
             </div>
          </div>
       </div>
+   </div>
+   <div style="margin-bottom:20px;">
+   	
    </div>
 
       
